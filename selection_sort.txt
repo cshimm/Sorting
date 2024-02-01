@@ -1,0 +1,33 @@
+def selection_sort(arr):
+    for i in range(len(arr)):
+        minimum = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[minimum]:
+                minimum = j
+        temp = arr[minimum]
+        arr[minimum] = arr[i]
+        arr[i] = temp
+    return arr
+
+
+Test Cases:
+test_descending: A strictly decreasing array of ints. This will generate the most amount of swaps (n).
+test_ascending: A strictly increasing array of ints. This will generate the least amount of swaps (0).
+test_randomly_generated: A randomly generated array whose length = upper_bound and whose elements
+(n) are 1 <= n <= upper_bound. 0 <= Number of swaps <= upper_bound
+test_all_elements_the_same: An array whose all elements are the same. No swaps.
+test_empty_array: An edge case. Ensures an empty array remains the same on return and throws no errors.
+test_one_element: An edge case. Ensures an array with one element remains the same on return.
+test_all_same_but_one: An array where all elements are the same but one.
+test_negative_numbers: Ensures the sort algorithm performs the same with negative numbers.
+
+The algorithm runs with an O(n^2) time complexity, even in the case where the array is already sorted. 
+
+Observations:
+I initially got caught up storing the value of the minimum rather than the index itself. I made the same
+mistake when updating the minimum if the current element is less than the minimum. This resulted in 
+incorrect comparisons causing my test cases to fail.
+
+I was able to easily implement a selection_sort algorithm that sorts in descending order by chaning the
+minimum value name to 'max' and changing the comparison to check if the current value (arr[j]) is 
+greater than the max.
