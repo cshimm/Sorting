@@ -3,10 +3,15 @@ import random
 
 def selection_sort(arr):
     for i in range(len(arr)):
+        # set the minimum to the current outer loop index
         minimum = i
+        # inner loop starts from current outer loop index
         for j in range(i + 1, len(arr)):
+            # if the element at inner loop is less than the current minimum: update minimum to  
+            # inner loop index
             if arr[j] < arr[minimum]:
                 minimum = j
+        # swap the element at the minimum index with outer loop index
         temp = arr[minimum]
         arr[minimum] = arr[i]
         arr[i] = temp

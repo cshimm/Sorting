@@ -1,0 +1,37 @@
+def bubble_sort(arr):
+    # Optimizaiton: if the input array is equal to a sorted array return the array early
+    if (arr == sorted(arr)): return arr
+    # /Optimizaiton
+    swapped = True
+    while(swapped):
+        swapped = False
+        for i in range(0, len(arr) - 1):
+            if arr[i] > arr[i+1]:
+                temp = arr[i]
+                arr[i] = arr[i+1]
+                arr[i+1] = temp
+                swapped = True
+    return arr
+
+Test Cases:
+test_descending: A strictly decreasing array of ints. This will generate the most amount of swaps (n).
+test_ascending: A strictly increasing array of ints. This will generate the least amount of swaps (0).
+test_randomly_generated: A randomly generated array whose length = upper_bound and whose elements
+(n) are 1 <= n <= upper_bound. 0 <= Number of swaps <= upper_bound
+test_all_elements_the_same: An array whose all elements are the same. No swaps.
+test_empty_array: An edge case. Ensures an empty array remains the same on return and throws no errors.
+test_one_element: An edge case. Ensures an array with one element remains the same on return.
+test_all_same_but_one: An array where all elements are the same but one.
+test_negative_numbers: Ensures the sort algorithm performs the same with negative numbers.
+
+The bubble_sort algorithm runs at a O(n^2) time complexity. This is due to the for loop nested inside of a 
+while loop. The worse case for this algorithm would be an input array in strictly descending order. In this
+case the algorithm would have to traverse the entire array array.length number of times.
+The space complexity is O(1) complexity because the sorting is done in place with no additional memory
+allocation required.
+
+Optimizaiton observations:
+The optimization on the first line of the algorithm will result in an O(n*log(n)) time 
+complexity if the input array is already sorted in ascending order. This is because the sorted() python
+method runs at O(n*log(n)) complexity which is what is used to determine if the input array is already 
+sorted.

@@ -22,6 +22,8 @@ test_all_same_but_one: An array where all elements are the same but one.
 test_negative_numbers: Ensures the sort algorithm performs the same with negative numbers.
 
 The algorithm runs with an O(n^2) time complexity, even in the case where the array is already sorted. 
+The space complexity is O(1) since the sorting is done in place and does not require any additional 
+memory allocation.
 
 Observations:
 I initially got caught up storing the value of the minimum rather than the index itself. I made the same
