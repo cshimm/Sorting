@@ -1,0 +1,42 @@
+def insertion_sort(arr):
+    for i in range(len(arr)):
+        curr = arr[i]
+        j = i
+        while j > 0 and arr[j-1] > curr:
+            arr[j] = arr[j-1]
+            j -= 1
+        arr[j] = curr
+    return arr
+
+
+The worst case (reversed array) results in an O(n^2) time complexity. This will not be as noticeable with 
+small datasets but will be increasingly ineffecient when the dataset grows. A strictly decreasing array
+with an input size of 10,000 results in ~4.5 seconds of runtime execution in python, far too long for any
+production application, especially considering a dataset of 10,000 isn't particularly large.
+
+Insertion Sort tends to perform well on small arrays or partially sorted arrays. 
+However, as the size of the array increases, Insertion Sort becomes less efficient when compared to advanced sorting algorithms. 
+It has a time complexity of O(n^2) which makes it ineffecient for large datasets.
+
+Space complexity: insertion sort uses constant or O(1) space complexity. This is to say there is constant memory allocation
+when performing insertion sort as the sort is accomplished in-place. This means no additional data structures are required to
+perform the sort.
+
+Bubble Sort: Similar to Insertion Sort, Bubble Sort has a time complexity of O(n^2) and is not efficient for large datasets. 
+However, in practice, Insertion Sort often performs better than Bubble Sort due to fewer data movements.
+
+Selection Sort: 
+Insertion Sort builds the sorted array incrementally by inserting elements one at a time.
+Selection Sort, on the other hand, repeatedly selects the smallest (or largest) element and swaps it with the first unsorted element, 
+resulting in a less efficient and non-stable sorting algorithm compared to Insertion Sort.
+
+The beneficial characteristics of Insertion Sort is its simplicty, in-place sorting and stability.
+My research indicates that insertion sort may be useful in streaming contexts and scenarios where the datasets
+are small or nearly sorted.
+
+Insertion sort can be improved upon in a variety of different ways, the first being binary insertion sort.
+This uses binary search to sort the elements. Since binary search is not linear, the number of comparisons
+are reduced, optimizing effeciency.
+
+Hybrid sorting algorithms can be derived from insertion sort like TimSort, a hybrid of MergeSort and Insertion
+Sort. This is the algorithm used in python's sorted() method. 

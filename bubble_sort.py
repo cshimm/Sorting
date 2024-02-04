@@ -18,7 +18,7 @@ def bubble_sort(arr):
                 swapped = True
     return arr
 
-class TestSelectionSort(unittest.TestCase):
+class TestBubbleSort(unittest.TestCase):
     def test_descending(self):
         arr = [9,8,7,6,5,4,3,2,1]
         self.assertEqual(bubble_sort(arr), sorted(arr))
@@ -51,7 +51,6 @@ class TestSelectionSort(unittest.TestCase):
     def test_negative_numbers(self):
         arr = [-3,-5,-38,-9,-122,-30,-1,0]
         self.assertEqual(bubble_sort(arr), sorted(arr))
-    pass
 
 if __name__ == '__main__':
     unittest.main()
